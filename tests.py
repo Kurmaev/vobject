@@ -93,13 +93,6 @@ class TestCalendarSerializing(unittest.TestCase):
         self.assertTrue('Joe, Lisa, and Bob' in vjournal.description.value)
         self.assertTrue('Tuesday.\n2.' in vjournal.description.value)
 
-    def test_vcard(self):
-        vcard = base.newFromBehavior('vcard', '3.0')
-        self.assertEqual(
-            str(vcard),
-            "<class 'vobject.vcard'>"
-        )
-
     def test_multiline(self):
         """
         Multi-text serialization test
@@ -364,6 +357,13 @@ class TestVcards(unittest.TestCase):
     def setUpClass(cls):
         cls.test_file = get_test_file("vcard_with_groups.ics")
         cls.card = base.readOne(cls.test_file)
+
+    def test_vcard_creation(self):
+        vcard = base.newFromBehavior('vcard', '3.0')
+        self.assertEqual(
+            str(vcard),
+            "'<VCARD| []>"
+        )
 
     def test_default_behavior(self):
         """
