@@ -5,6 +5,13 @@ from . import behavior
 from .base import ContentLine, registerBehavior, backslashEscape
 from .icalendar import stringToTextValues
 
+
+# Python 3 no longer has a basestring type, so....
+try:
+    basestring = basestring
+except NameError:
+    basestring = (str,bytes)
+
 #------------------------ vCard structs ----------------------------------------
 
 class Name(object):
@@ -305,7 +312,7 @@ class OrgBehavior(VCardBehavior):
         """Turn obj.value into a list."""
         if obj.isNative: return obj
         obj.isNative = True
-        #obj.value = splitFields(obj.value)
+        obj.value = splitFields(obj.value)
         return obj
 
     @staticmethod
