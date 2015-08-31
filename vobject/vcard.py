@@ -232,6 +232,7 @@ def serializeFields(obj, order=None):
     return a ';' separated string.
     """
     fields = []
+    print("Inside serializeFields")
     if order is None:
         fields = [backslashEscape(val) for val in obj]
     else:
