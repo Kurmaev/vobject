@@ -312,7 +312,7 @@ class OrgBehavior(VCardBehavior):
         """Turn obj.value into a list."""
         if obj.isNative: return obj
         obj.isNative = True
-        obj.value = splitFields(obj.value)
+        # obj.value = splitFields(obj.value)
         return obj
 
     @staticmethod
