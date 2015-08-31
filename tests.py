@@ -415,7 +415,7 @@ class TestVcards(unittest.TestCase):
         #    "<Address: Haight Street 512;\nEscape, Test\nNovosibirsk,  80214\nGnuland>"
         #)
         self.assertEqual(
-            str(card.org.value),
+            card.org.value,
             "University of Novosibirsk, Department of Octopus Parthenogenesis"
         )
 
