@@ -177,7 +177,6 @@ class TestBehaviors(unittest.TestCase):
         # Check expected behavior registry.
         self.assertEqual(
             sorted(behavior_registry.keys()),
-            print(sorted(behavior_registry.keys()))
             ['', 'ACTION', 'ADR', 'AVAILABLE', 'BUSYTYPE', 'CALSCALE', 'CATEGORIES', 'CLASS', 'COMMENT', 'COMPLETED', 'CONTACT', 'CREATED', 'DAYLIGHT', 'DESCRIPTION', 'DTEND', 'DTSTAMP', 'DTSTART', 'DUE', 'DURATION', 'EXDATE', 'EXRULE', 'FN', 'FREEBUSY', 'LABEL', 'LAST-MODIFIED', 'LOCATION', 'METHOD', 'N', 'ORG', 'PHOTO', 'PRODID', 'RDATE', 'RECURRENCE-ID', 'RELATED-TO', 'REQUEST-STATUS', 'RESOURCES', 'RRULE', 'STANDARD', 'STATUS', 'SUMMARY', 'TRANSP', 'TRIGGER', 'UID', 'VALARM', 'VAVAILABILITY', 'VCALENDAR', 'VCARD', 'VEVENT', 'VFREEBUSY', 'VJOURNAL', 'VTIMEZONE', 'VTODO']
         )
 
@@ -362,7 +361,7 @@ class TestVcards(unittest.TestCase):
         vcard = base.newFromBehavior('vcard', '3.0')
         self.assertEqual(
             str(vcard),
-            "'<VCARD| []>"
+            "<VCARD| []>"
         )
 
     def test_default_behavior(self):
