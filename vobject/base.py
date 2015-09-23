@@ -28,6 +28,9 @@ except NameError:
     def str_(s):
         return s
 
+if six.PY3:
+    import quopri
+
 #------------------------------------ Logging ----------------------------------
 logger = logging.getLogger(__name__)
 if not logging.getLogger().handlers:
@@ -296,7 +299,12 @@ class ContentLine(VBase):
             qp = True
             self.singletonparams.remove('QUOTED-PRINTABLE')
         if qp:
-            self.value = self.value.decode('quoted-printable')
+            if six.PY3:
+                charset = self.params.get('CHARSET', ['UTF-8'])[0]
+                self.value = quopri.decodestring(self.value).decode(charset)
+            else:
+                self.value = self.value.decode('quoted-printable')
+
 
     @classmethod
     def duplicate(clz, copyit):
